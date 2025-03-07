@@ -4,7 +4,8 @@
   "description": "-[] Deve ser possível cadastrar um pet -[] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade -[] Deve ser possível filtrar pets por suas características -[] Deve ser possível visualizar detalhes de um pet para adoção -[] Deve ser possível se cadastrar como uma ORG -[] Deve ser possível realizar login como uma ORG",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run --dir src/services",
+    "test:watch": "vitest --dir src/services",
     "dev": "tsx watch src/server.ts",
     "build": "tsup src --out-dir build",
     "start": "node build/server.js"
@@ -17,11 +18,15 @@
     "@rocketseat/eslint-config": "2.2.2",
     "@types/node": "^22.13.9",
     "eslint": "8.57.1",
+    "prisma": "6.4.1",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.0.8"
   },
   "dependencies": {
+    "@prisma/client": "6.4.1",
     "dotenv": "16.4.7",
     "fastify": "^5.2.1",
     "zod": "3.24.2"
