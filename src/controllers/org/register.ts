@@ -52,7 +52,7 @@ export async function register(req: FastifyRequest, reply: FastifyReply) {
     })
   } catch (error) {
     if (error instanceof Error) {
-      return reply.status(409).send({ message: 'Error on create org' })
+      return reply.status(409).send({ message: 'Error on create org', error })
     }
   }
   return reply.status(201).send({ message: 'successfully registered org' })

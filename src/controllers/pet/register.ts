@@ -29,6 +29,7 @@ export async function register(req: FastifyRequest, reply: FastifyReply) {
       size,
       about,
       type,
+      org_id,
     })
   } catch (error) {
     if (error instanceof Error) {

@@ -1,5 +1,6 @@
 import { orgRepository } from '@/repositories/org-repository'
 import { Org } from '@prisma/client'
+import { hash } from 'bcryptjs'
 
 interface orgServiceRequest {
   name: string
@@ -37,10 +38,12 @@ export class RegisterOrgService {
     latitude,
     longitude,
   }: orgServiceRequest): Promise<orgServiceResponse> {
+    const passwordHash = await hash(password, 6)
+
     const org = await this.orgRepository.register({
       name,
       email,
-      password,
+      password: passwordHash,
       whatsapp,
       author_name: authorName,
       cep,
