@@ -1,9 +1,9 @@
-import { Prisma } from '@prisma/client'
+import { Pet, Prisma } from '@prisma/client'
 import { PetsRepository } from '../pet-repository'
 import { prisma } from '@/lib/prisma'
 
 export class PrismaPetRepository implements PetsRepository {
-  async register(data: Prisma.PetCreateInput) {
+  async register(data: Prisma.PetUncheckedCreateInput): Promise<Pet> {
     const pet = await prisma.pet.create({
       data,
     })

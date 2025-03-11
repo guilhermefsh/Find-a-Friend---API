@@ -19,6 +19,8 @@ export async function register(req: FastifyRequest, reply: FastifyReply) {
   try {
     const registerPet = makeCreatePetService()
 
+    const org_id = req.user.sub
+
     await registerPet.execute({
       name,
       age,

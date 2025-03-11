@@ -8,6 +8,7 @@ interface RegisterPetServiceRequest {
   energy_level: string
   size: string
   about: string
+  org_id: string
   type: 'DOG' | 'CAT'
 }
 
@@ -26,6 +27,7 @@ export class RegisterPetService {
     size,
     about,
     type,
+    org_id,
   }: RegisterPetServiceRequest): Promise<RegisterPetServiceResponse> {
     const pet = await this.petsRepository.register({
       name,
@@ -35,6 +37,7 @@ export class RegisterPetService {
       size,
       about,
       type,
+      org_id,
     })
 
     return { pet }
