@@ -10,7 +10,7 @@ FindAFriend API
 - [x] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
 - [x] Deve ser possível filtrar pets por suas características
 - [x] Deve ser possível visualizar detalhes de um pet para adoção
-- [] Deve ser possível visualizar orgs próximas
+- [X] Deve ser possível visualizar orgs próximas
 
 ## Regras de negócio
 
