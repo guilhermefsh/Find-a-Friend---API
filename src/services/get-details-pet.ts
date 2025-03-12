@@ -1,6 +1,6 @@
 import { PetsRepository } from '@/repositories/pet-repository'
 import { Pet } from '@prisma/client'
-import { PetNotFoundError } from './errors/Pet-not-found'
+import { PetNotFoundError } from './errors/pet-not-found'
 
 interface getDetailsPetServiceRequest {
   petId: string

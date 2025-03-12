@@ -1,5 +1,5 @@
 import { Pet, Prisma } from '@prisma/client'
-import { PetsRepository } from '../pet-repository'
+import { FindAllParams, PetsRepository } from '../pet-repository'
 import { prisma } from '@/lib/prisma'
 
 export class PrismaPetRepository implements PetsRepository {
@@ -23,5 +23,24 @@ export class PrismaPetRepository implements PetsRepository {
     }
 
     return pet
+  }
+
+  async findAll(params: FindAllParams): Promise<Pet[]> {
+    const pets = await prisma.pet.findMany({
+      where: {
+        age: params.age,
+        size: params.size,
+        energy_level: params.energy_level,
+        environtment: params.environment,
+        org: {
+          city: {
+            contains: params.city,
+            mode: 'insensitive',
+          },
+        },
+      },
+    })
+
+    return pets
   }
 }
